@@ -1,0 +1,30 @@
+
+spring:
+  datasource:
+    initialize: true
+    url: jdbc:postgresql://localhost:5432/test_spring_security_v1
+    username: postgres
+    password: Abcd1234
+  jpa:
+    hibernate:
+      ddl-auto: update
+      show-sql: false
+      naming:
+        implicit-strategy: org.hibernate.boot.model.naming.ImplicitNamingStrategyLegacyJpaImpl
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+    properties:
+      hibernate:
+        default_schema: test_spring_security_v1
+        dialect: org.hibernate.dialect.PostgreSQL95Dialect
+        jdbc:
+          batch_size: 1000
+        order_inserts: true
+        enable_lazy_load_no_trans: true
+        event:
+          merge:
+            entity_copy_observer: allow
+    open-in-view: false
+
+jwt:
+  jwtSecret: appnew
+  jwtExpirationMs: 86400000
